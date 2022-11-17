@@ -1,13 +1,368 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Live Coin Tracker</title>
-</head>
-<body>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="h3 text-muted">My Favorite</div>
+      <div id="starred" class="bg-white px-2 pt-1 mt-2">
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>
+                  <div class="d-flex mt-2 border-right">
+                    <div class="box p-2 rounded">
+                      <span class="fas fa-star text-primary px-1"></span>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex flex-column">
+                    <div class="text-muted">Name</div>
+                    <div class="d-flex align-items-center">
+                      <div>
+                        <img
+                          src="https://www.freepnglogos.com/uploads/bitcoin-png/bitcoin-all-about-bitcoins-9.png"
+                          alt=""
+                          class="icons"
+                        />
+                      </div>
+                      <b class="pl-2">Bitcoin</b>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex flex-column">
+                    <div class="text-muted">Market cap</div>
+                    <div><b>$146,169,768.00</b></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex flex-column">
+                    <div class="text-muted">Price</div>
+                    <div><b>$8,536.79</b></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex flex-column">
+                    <div class="d-flex align-items-center labels">
+                      <div class="text-muted">Volume</div>
+                      <div class="green-label mx-1 px-1 rounded">74</div>
+                    </div>
+                    <div><b>$7,576,878.89</b></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex flex-column">
+                    <div class="d-flex align-items-center labels">
+                      <div class="text-muted">Change</div>
+                      <div class="orange-label mx-1 px-1 rounded">20%</div>
+                    </div>
+                    <div><b class="red">-1.22%</b></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="graph">
+                    <img
+                      src="https://freepngimg.com/thumb/stock_market/25650-5-stock-market-graph-up-transparent-background.png"
+                      alt=""
+                    />
+                    <div class="dot"></div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="d-lg-flex align-items-lg-center py-4">
+        <div class="h3 text-muted">Top Cryptocurrency Prices</div>
+        <div class="ml-auto">
+          <select name="industry" id="industry" class="mx-lg-3 mr-md-4">
+            <option value="" hidden selected>Choose Industry</option>
+            <option value="dark">Dark Net</option>
+          </select>
+          <select name="plat" id="plat">
+            <option value="" hidden selected>Choose Platform</option>
+            <option value="darkweb">Dark Web</option>
+          </select>
+        </div>
+      </div>
+      <div id="top">
+        <div class="bg-white table-responsive">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>
+                  <div class="d-flex mt-2 border-right">
+                    <div class="box p-2 rounded">
+                      <span class="text-primary px-2 font-weight-bold">01</span>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex flex-column">
+                    <div class="text-muted">Name</div>
+                    <div class="d-flex align-items-center">
+                      <div>
+                        <img
+                          src="https://freepngimg.com/thumb/bitcoin/59703-classic-bitcoin-virtual-cryptocurrency-currency-ethereum.png"
+                          alt=""
+                          class="icons"
+                        />
+                      </div>
+                      <b class="pl-2">Ethereum</b>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex flex-column">
+                    <div class="text-muted">Market cap</div>
+                    <div><b>$146,169,768.00</b></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex flex-column">
+                    <div class="text-muted">Price</div>
+                    <div><b>$8,536.79</b></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex flex-column">
+                    <div class="d-flex align-items-center labels">
+                      <div class="text-muted">Volume</div>
+                      <div class="green-label mx-1 px-1 rounded">74</div>
+                    </div>
+                    <div><b>$7,576,878.89</b></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex flex-column">
+                    <div class="d-flex align-items-center labels">
+                      <div class="text-muted">Change</div>
+                      <div class="orange-label mx-1 px-1 rounded">20%</div>
+                    </div>
+                    <div><b class="red">-0.18%</b></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="graph">
+                    <img
+                      src="https://freepngimg.com/thumb/stock_market/25650-5-stock-market-graph-up-transparent-background.png"
+                      alt=""
+                      id="ethereum"
+                    />
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="d-flex mt-2 border-right">
+                    <div class="box p-2 rounded">
+                      <span class="text-primary px-1 font-weight-bold">02</span>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex flex-column">
+                    <div class="text-muted">Name</div>
+                    <div class="d-flex align-items-center">
+                      <div>
+                        <img
+                          src="https://freepngimg.com/thumb/bitcoin/59526-cryptocurrency-badge-bitcoin-gold-png-file-hd-thumb.png"
+                          alt=""
+                          class="icons"
+                        />
+                      </div>
+                      <b class="pl-2">Bitcoin cash</b>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex flex-column">
+                    <div class="text-muted">Market cap</div>
+                    <div><b>$446,569,768.00</b></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex flex-column">
+                    <div class="text-muted">Price</div>
+                    <div><b>$8,836.79</b></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex flex-column">
+                    <div class="d-flex align-items-center labels">
+                      <div class="text-muted">Volume</div>
+                      <div class="green-label mx-1 px-1 rounded">74</div>
+                    </div>
+                    <div><b>$7,576,878.89</b></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex flex-column">
+                    <div class="d-flex align-items-center labels">
+                      <div class="text-muted">Change</div>
+                      <div class="orange-label mx-1 px-1 rounded">20%</div>
+                    </div>
+                    <div><b class="green">+4.00%</b></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="graph">
+                    <img
+                      src="https://freepngimg.com/thumb/stock_market/25650-5-stock-market-graph-up-transparent-background.png"
+                      alt=""
+                    />
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="d-flex mt-2 border-right">
+                    <div class="box p-2 rounded">
+                      <span class="text-primary px-1 font-weight-bold">03</span>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex flex-column">
+                    <div class="text-muted">Name</div>
+                    <div class="d-flex align-items-center">
+                      <div>
+                        <img
+                          src="https://freepngimg.com/thumb/bitcoin/59549-cryptocurrency-money-bitcoin-gold-cash-free-photo-png-thumb.png"
+                          alt=""
+                          class="icons"
+                        />
+                      </div>
+                      <b class="pl-2">Ripple</b>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex flex-column">
+                    <div class="text-muted">Market cap</div>
+                    <div><b>$56,169,768.00</b></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex flex-column">
+                    <div class="text-muted">Price</div>
+                    <div><b>$5,536.79</b></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex flex-column">
+                    <div class="d-flex align-items-center labels">
+                      <div class="text-muted">Volume</div>
+                      <div class="green-label mx-1 px-1 rounded">74</div>
+                    </div>
+                    <div><b>$17,576,878.89</b></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex flex-column">
+                    <div class="d-flex align-items-center labels">
+                      <div class="text-muted">Change</div>
+                      <div class="orange-label mx-1 px-1 rounded">20%</div>
+                    </div>
+                    <div><b class="green">+1.71%</b></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="graph">
+                    <img
+                      src="https://freepngimg.com/thumb/stock_market/25650-5-stock-market-graph-up-transparent-background.png"
+                      alt=""
+                      id="ripple"
+                    />
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="d-flex mt-2 border-right">
+                    <div class="box p-2 rounded">
+                      <span class="text-primary px-1 font-weight-bold">04</span>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex flex-column">
+                    <div class="text-muted">Name</div>
+                    <div class="d-flex align-items-center">
+                      <div>
+                        <img
+                          src="https://freepngimg.com/thumb/bitcoin/59842-cryptocurrency-bitfinex-bitcoin-exchange-png-download-free-thumb.png"
+                          alt=""
+                          class="icons"
+                        />
+                      </div>
+                      <b class="pl-2">EOS</b>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex flex-column">
+                    <div class="text-muted">Market cap</div>
+                    <div><b>$12,169,768.00</b></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex flex-column">
+                    <div class="text-muted">Price</div>
+                    <div><b>$14.79</b></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex flex-column">
+                    <div class="d-flex align-items-center labels">
+                      <div class="text-muted">Volume</div>
+                      <div class="green-label mx-1 px-1 rounded">74</div>
+                    </div>
+                    <div><b>$76,878.89</b></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex flex-column">
+                    <div class="d-flex align-items-center labels">
+                      <div class="text-muted">Change</div>
+                      <div class="orange-label mx-1 px-1 rounded">20%</div>
+                    </div>
+                    <div><b class="red">-5.86%</b></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="graph">
+                    <img
+                      src="https://freepngimg.com/thumb/stock_market/25650-5-stock-market-graph-up-transparent-background.png"
+                      alt=""
+                      id="eos"
+                    />
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center py-2">
+        <div>
+          <a href="#">Load more <span class="text-white">26</span></a>
+        </div>
+      </div>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./assets/js/script.js"></script>
-</body>
+  </body>
 </html>
