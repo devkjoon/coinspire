@@ -1,4 +1,4 @@
-const url = "https://rest.coinapi.io/v1/exchanges";
+const url = "https://rest.coinapi.io/v1/assets";
 
 const options = {
   headers: {
