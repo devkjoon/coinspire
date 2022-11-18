@@ -8,7 +8,14 @@ body {
 
 /* Nav Bar  */
 nav {
-    display: inline-block;
     background-color: white;
     opacity: .8;
+    display: inline-block;
+}
+
+.logo {
+    background-color: black;
+    height: 200px;
+    width:380px;
+    
 }
