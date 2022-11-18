@@ -1,7 +1,14 @@
+/* Body */
 body {
-    font-family: 'Roboto', sans-serif;   
+    font-family: 'Roboto', sans-serif;
+    /* background-color: rgb(0,0,33); */
+    background-image: linear-gradient(rgb(3, 3, 83),rgb(0,0,32));
+    opacity: .8;
 }
 
+/* Nav Bar  */
 nav {
     display: inline-block;
+    background-color: white;
+    opacity: .8;
 }
