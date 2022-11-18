@@ -1,7 +1,14 @@
+
 body {
     font-family: 'Roboto', sans-serif;   
 }
 
 nav {
     display: inline-block;
+}
+
+.logo {
+    background-color: black;
+    height: 200px;
+    width:380px;
 }
