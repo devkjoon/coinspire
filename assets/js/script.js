@@ -1,4 +1,4 @@
-const now = setInterval(getApi, 10000);
+// const now = setInterval(getApi, 10000);
 
 // const baseURL = "https://rest.coinapi.io/v1/assets";
 const btcApi = 'https://rest.coinapi.io/v1/exchanges?filter_exchange_id=btc'
@@ -13,14 +13,14 @@ function getApi() {
   .then( res => res.json() )
   .then( data => {
     console.log(data);
-    btcData(data) 
+    // btcData(data) 
   });
 }
 
-let btcData = function (data) {
-  let btcLivePrice = document.querySelector('#btcLivePrice')
-  btcLivePrice.innerText = data[1].price_usd;
-}
+// let btcData = function (data) {
+//   let btcLivePrice = document.querySelector('#btcLivePrice')
+//   btcLivePrice.innerText = data[1].price_usd;
+// }
 
 // function getBtcApi() {
 //   let btcApi = 'https://rest.coinapi.io/v1/exchanges?filter_exchange_id=btc'
