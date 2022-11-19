@@ -30,6 +30,13 @@ body {
     background-attachment: fixed;
 }
 
+#searchbar {
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding: auto;
+}
+
 @keyframes gradient {
     0% {
         background-position: 0% 0%;
