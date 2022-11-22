@@ -24,31 +24,35 @@ document.querySelector("#searchBtn").addEventListener("click", (e) => {
 });
 
 function getRandomApi() {
-  let randomApiUrl = `https://min-api.cryptocompare.com/data/blockchain/list?api_key=850252ca876085a93a414bceb298e21862313b438417b87364eb0fe9aab45e1c`
+  let randomApiUrl = `https://min-api.cryptocompare.com/data/blockchain/list?api_key=850252ca876085a93a414bceb298e21862313b438417b87364eb0fe9aab45e1c`;
+  for (let i=1; i<5; i++) {
   fetch(randomApiUrl)
-  .then((res) => {
-    return res.json();
-  })
-  .then((data) => {
-    console.log(data)
-    updatePrice(data)
-  })
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      console.log(data);
+      updatePrice(data, i);
+    });
+  }
 }
 
-let updatePrice = function(randomData) {
-  let keys = Object.keys(randomData.Data)
-  console.log(Math.floor(Math.random()*keys.length))
-  let propertyName = keys[Math.floor(Math.random()*keys.length)]
-  console.log(propertyName)
-  let symbolName = randomData.Data[propertyName].symbol
-  console.log(symbolName)
-  fetch(`https://min-api.cryptocompare.com/data/price?fsym=${symbolName}&tsyms=USD`)
-  .then((res) => {
-    return res.json();
-  })
-  .then((data) => {
-     console.log(data)
-     document.querySelector('#livePrice').innerText = 
-     data.USD
-  })
-}
+let updatePrice = function (randomData, i) {
+  let keys = Object.keys(randomData.Data);
+  console.log(Math.floor(Math.random() * keys.length));
+  let propertyName = keys[Math.floor(Math.random() * keys.length)];
+  console.log(propertyName);
+  let symbolName = randomData.Data[propertyName].symbol;
+  console.log(symbolName);
+  fetch(
+    `https://min-api.cryptocompare.com/data/price?fsym=${symbolName}&tsyms=USD`
+  )
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      console.log(data);
+      document.querySelector("#coin" + i + "price").innerText = `$${data.USD}`;
+      document.querySelector("#coin" + i + "name").innerText = symbolName;
+    });
+};
