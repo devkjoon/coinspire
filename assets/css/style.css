@@ -42,15 +42,31 @@ body {
 }
 
 .btcdiv {
-    margin: 10px 25% 30px;
+    margin: 30px 25% 30px;
 }
 
-.topleft, .bottomleft {
-    margin-right: 20px;
+.topleft {
+    margin-left: 10%;
+    margin-right: 5%;
+    width: 35%;
 }
 
-.topright, .bottomright {
-    margin-left: 20px;
+.topright {
+    margin-left: 5%;
+    margin-right: 10%;
+    width: 35%;
+}
+
+.bottomleft {
+    margin-left: 10%;
+    margin-right: 5%;
+    width: 35%;
+}
+
+.bottomright {
+    margin-left: 5%;
+    margin-right: 10%;
+    width: 35%;
 }
 
 .wave {
