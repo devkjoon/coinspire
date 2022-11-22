@@ -1,4 +1,4 @@
-// const update = setInterval(getBtcApi, 1500);
+// const updateBtcLive = setInterval(getBtcApi, 1500);
 // const apiKey = `850252ca876085a93a414bceb298e21862313b438417b87364eb0fe9aab45e1c`
 
 function getBtcApi() {
@@ -56,3 +56,15 @@ let updatePrice = function (randomData, i) {
       document.querySelector("#coin" + i + "name").innerText = symbolName;
     });
 };
+
+document.querySelector('#searchbar').addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault()
+    findApi()
+  }
+})
+
+function findApi() {
+  let inputValue = (document.querySelector('#searchbar').value)
+  let findCoin = 
+}
