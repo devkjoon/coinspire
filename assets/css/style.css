@@ -75,6 +75,14 @@ body {
     opacity: 0.9;
 }
 
+.min-width {
+    min-width: 300px;
+}
+
+.padding-left {
+    padding-left: 20px;
+}
+
 @keyframes wave {
     2% {
         transform: translateX(1);
