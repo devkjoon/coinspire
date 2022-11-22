@@ -23,10 +23,12 @@ body {
 }
 
 #searchbar {
-    align-items: center;
-    justify-content: center;
     margin: auto;
     padding: auto;
+}
+
+::placeholder {
+    text-align: center;
 }
 
 @keyframes gradient {

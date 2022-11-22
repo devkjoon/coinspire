@@ -30,15 +30,16 @@
         </div>
       </div>
       <div></div>
-      <div id="navbarExampleTransparentExample" class="navbar-menu">
+      <div class="navbar-menu">
         <div class="navbar-end">
           <input
             class="input is-rounded is-small is-focused"
             id="searchbar"
             type="text"
-            placeholder="search for a coin"
+            placeholder="search coin by symbol"
           />
-          <a class="navbar-item"><button id="searchBtn">Random</button></a>
+          <button onclick="scrollFunction()" class="is-small navbar-item" id="searchBtn">Search</button>
+          <a class="navbar-item"><button id="randomSearchBtn">Random</button></a>
           <div class="navbar-item has-dropdown is-hoverable">
             <a
               class="navbar-link"
