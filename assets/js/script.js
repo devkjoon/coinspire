@@ -26,16 +26,16 @@ document.querySelector("#randomSearchBtn").addEventListener("click", (e) => {
 
 function getRandomApi() {
   let randomApiUrl = `https://min-api.cryptocompare.com/data/blockchain/list?api_key=850252ca876085a93a414bceb298e21862313b438417b87364eb0fe9aab45e1c`;
-  for (let i=1; i<5; i++) {
   fetch(randomApiUrl)
     .then((res) => {
       return res.json();
     })
     .then((data) => {
       console.log(data);
+    for (let i=1; i<5; i++) {
       updatePrice(data, i);
+    }
     });
-  }
 }
 
 let updatePrice = function (randomData, i) {
