@@ -12,6 +12,7 @@ nav {
     width:380px;   
 }
 
+
 body {
     margin: auto;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
@@ -126,3 +127,4 @@ body {
         transform: translateX(1);
     }
 }
+
