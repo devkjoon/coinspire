@@ -153,6 +153,11 @@ let findApiDet = function (findData) {
 
 function findApi2() {
   let userSearch = document.querySelector('#searchbar').value.toUpperCase()
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0');
+  var yyyy = today.getFullYear();
+  today = yyyy + '-' + mm + '-' + dd;
   fetch(
     `https://api.polygon.io/v2/aggs/ticker/X:${userSearch}USD/range/1/day/2022-11-27/2022-11-28?adjusted=true&sort=asc&limit=120&apiKey=7xjpB0pxhlPMl42aHy891kYT99ezp_oZ`
   )
