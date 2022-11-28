@@ -1,4 +1,4 @@
-// const updateBtcLive = setInterval(getBtcApi, 5000);
+// const updateBtcLive = setInterval(getBtcApi, 10000);
 // const apiKey = `850252ca876085a93a414bceb298e21862313b438417b87364eb0fe9aab45e1c`
 const searchbar = document.querySelector("#searchbar");
 const randomSearchBtn = document.querySelector("#randomSearchBtn");
@@ -24,6 +24,7 @@ let updateBtc = function (btcData) {
   document.querySelector('#btcLow').innerText = "24HR Low: " + btcData.DISPLAY.BTC.USD.LOW24HOUR
   document.querySelector('#btcHighHr').innerText = "1HR High: " + btcData.DISPLAY.BTC.USD.HIGHHOUR
   document.querySelector('#btcLowHr').innerText = "1HR Low: " + btcData.DISPLAY.BTC.USD.LOWHOUR
+  document.querySelector('#btcIMG').src = "https://www.cryptocompare.com" + btcData.DISPLAY.BTC.USD.IMAGEURL
 };
 
 randomSearchBtn.addEventListener("click", (e) => {
