@@ -1,4 +1,4 @@
-// const updateBtcLive = setInterval(getBtcApi, 1500);
+// const updateBtcLive = setInterval(getBtcApi, 5000);
 // const apiKey = `850252ca876085a93a414bceb298e21862313b438417b87364eb0fe9aab45e1c`
 const searchbar = document.querySelector("#searchbar");
 const randomSearchBtn = document.querySelector("#randomSearchBtn");
@@ -17,8 +17,13 @@ function getBtcApi() {
 }
 
 let updateBtc = function (btcData) {
-  document.querySelector("#livePrice").innerText =
-    "$" + btcData.RAW.BTC.USD.PRICE;
+  document.querySelector("#livePrice").innerText = btcData.DISPLAY.BTC.USD.PRICE;
+  document.querySelector('#btcPercentage24hr').innerText = "Change (24HR): " + btcData.DISPLAY.BTC.USD.CHANGE24HOUR + " (" + btcData.DISPLAY.BTC.USD.CHANGEPCT24HOUR + "%)"
+  document.querySelector('#btcPercentageHour').innerText = "Change (Hour): " + btcData.DISPLAY.BTC.USD.CHANGEHOUR + " (" + btcData.DISPLAY.BTC.USD.CHANGEPCTHOUR + "%)"
+  document.querySelector('#btcHigh').innerText = "24HR High: " + btcData.DISPLAY.BTC.USD.HIGH24HOUR
+  document.querySelector('#btcLow').innerText = "24HR Low: " + btcData.DISPLAY.BTC.USD.LOW24HOUR
+  document.querySelector('#btcHighHr').innerText = "1HR High: " + btcData.DISPLAY.BTC.USD.HIGHHOUR
+  document.querySelector('#btcLowHr').innerText = "1HR Low: " + btcData.DISPLAY.BTC.USD.LOWHOUR
 };
 
 randomSearchBtn.addEventListener("click", (e) => {
@@ -59,6 +64,26 @@ let updatePrice = function (randomData, i) {
       document.querySelector("#coin" + i + "name").innerText = symbolName;
     });
 };
+
+// let updatePrice = function (randomData, i) {
+//   let keys = Object.keys(randomData.Data);
+//   console.log(Math.floor(Math.random() * keys.length));
+//   let propertyName = keys[Math.floor(Math.random() * keys.length)];
+//   console.log(propertyName);
+//   let symbolName = randomData.Data[propertyName].symbol;
+//   console.log(symbolName);
+//   fetch(
+//     `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${symbolName}&tsyms=USD`
+//   )
+//     .then((res) => {
+//       return res.json();
+//     })
+//     .then((data) => {
+//       console.log(data);
+//       document.querySelector("#coin" + i + "price").innerText = data.DISPLAY.symbolName.USD.PRICE;
+//       document.querySelector("#coin" + i + "name").innerText = symbolName;
+//     });
+// };
 
 function scrollFunction() {
   let e = document.querySelector("#searchCard");
@@ -111,7 +136,6 @@ function findApi() {
       return res.json();
     })
     .then((data) => {
-      console.log(data);
       findApiDet(data);
     });
 }
@@ -130,7 +154,6 @@ function findApi2() {
       return res.json();
     })
     .then((data) => {
-      console.log(data);
       findApiDet2(data);
     });
     searchbar.value = ""

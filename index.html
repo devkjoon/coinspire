@@ -15,7 +15,7 @@
   <body class="has-navbar-fixed-top" onload="getRandomApi()">
     <nav class="navbar is-transparent is-fixed-top">
       <div class="navbar-brand">
-        <a class="navbar-item" href="">
+        <a class="navbar-item">
           <img
             src="../live-crypto-tracker/assets/images/logo-dark.png"
             alt="CoinSpire Logo"
@@ -95,16 +95,17 @@
               />
             </svg>
           </button>
-          <div>
-            <span class="font-bold text-green-500">+ $726 (15%)</span><br />
-            <span class="font-bold text-black-500 Mid">New Element</span><br />
-            <span class="font-medium text-xs text-gray-500 flex justify-end"
-              >0.382 coin</span
-            >
+          <div class="searchCardInfo">
+            <span class="font-bold text-green-500" id="btcPercentage24hr">Change Percentage</span><br />
+            <span class="font-bold text-black-500 Mid" id="btcHigh">High</span><br />
+            <span class="font-bold text-black-500 Mid" id="btcLow">Low</span><br />
+            <span class="font-bold text-green-500" id="btcPercentageHour">Change Percentage</span><br />
+            <span class="font-bold text-black-500 Mid" id="btcHighHr">Hour High</span><br />
+            <span class="font-bold text-black-500 Mid" id="btcLowHr">Hour Low</span>
           </div>
         </div>
         <div>
-          <h3 class="font-semibold text-sm text-gray-400">BTC</h3>
+          <h3 class="font-semibold text-sm text-gray-400">Bitcoin (BTC)</h3>
           <h1 class="font-semibold text-xl text-gray-700" id="livePrice">
             $ 1,936.00
           </h1>
