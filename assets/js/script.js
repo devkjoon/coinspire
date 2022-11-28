@@ -4,6 +4,11 @@ const searchbar = document.querySelector("#searchbar");
 const randomSearchBtn = document.querySelector("#randomSearchBtn");
 const searchBtn = document.querySelector('#searchBtn')
 
+window.onload = function() {
+  getBtcApi();
+  getRandomApi();
+}
+
 function getBtcApi() {
   let requestURL = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD&api_key=850252ca876085a93a414bceb298e21862313b438417b87364eb0fe9aab45e1c`;
   fetch(requestURL)
