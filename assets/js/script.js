@@ -1,4 +1,4 @@
-// const updateBtcLive = setInterval(getBtcApi, 10000);
+const updateBtcLive = setInterval(getBtcApi, 10000);
 // const apiKey = `850252ca876085a93a414bceb298e21862313b438417b87364eb0fe9aab45e1c`
 const searchbar = document.querySelector("#searchbar");
 const randomSearchBtn = document.querySelector("#randomSearchBtn");
@@ -110,7 +110,7 @@ let updatePrice = function (randomData, i) {
       document.querySelector("#coin" + i + "low").innerText =
         "1HR Low: " + data.DISPLAY[symbolName].USD.LOWHOUR;
       document.querySelector("#coin" + i + "change").innerText =
-        "Change (1HR): " +
+        "1HR: " +
         data.DISPLAY[symbolName].USD.CHANGEHOUR +
         " (" +
         data.DISPLAY[symbolName].USD.CHANGEPCTHOUR +
