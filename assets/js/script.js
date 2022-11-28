@@ -1,7 +1,9 @@
 // const updateBtcLive = setInterval(getBtcApi, 1500);
 // const apiKey = `850252ca876085a93a414bceb298e21862313b438417b87364eb0fe9aab45e1c`
-const searchbar = document.querySelector('#searchbar')
-const randomSearchBtn = document.querySelector('#randomSearchBtn')
+const searchbar = document.querySelector("#searchbar");
+const randomSearchBtn = document.querySelector("#randomSearchBtn");
+const searchBtn = document.querySelector('#searchBtn')
+
 function getBtcApi() {
   let requestURL = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD&api_key=850252ca876085a93a414bceb298e21862313b438417b87364eb0fe9aab45e1c`;
   fetch(requestURL)
@@ -19,7 +21,7 @@ let updateBtc = function (btcData) {
     "$" + btcData.RAW.BTC.USD.PRICE;
 };
 
-document.querySelector("#randomSearchBtn").addEventListener("click", (e) => {
+randomSearchBtn.addEventListener("click", (e) => {
   e.preventDefault();
   getRandomApi();
 });
@@ -32,9 +34,9 @@ function getRandomApi() {
     })
     .then((data) => {
       console.log(data);
-    for (let i=1; i<5; i++) {
-      updatePrice(data, i);
-    }
+      for (let i = 1; i < 5; i++) {
+        updatePrice(data, i);
+      }
     });
 }
 
@@ -59,61 +61,83 @@ let updatePrice = function (randomData, i) {
 };
 
 function scrollFunction() {
-  let e = document.querySelector('#searchCard')
+  let e = document.querySelector("#searchCard");
   e.scrollIntoView({
-    block: 'start',
-    behavior: 'smooth',
-    inline: 'center'
+    block: "start",
+    behavior: "smooth",
+    inline: "center",
+  });
+}
+
+function scrollFunction2() {
+  let e = document.querySelector('#smallerCards')
+  e.scrollIntoView({
+    block: "center",
+    behavior: "smooth", 
+    inline: "center",
   })
 }
 
 searchbar.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
-    e.preventDefault()
-    findApi()
-    searchbar.input = ""
+    e.preventDefault();
+    findApi();
+    findApi2();
   }
+});
+
+searchBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  findApi();
+  findApi2();
 })
 
-randomSearchBtn.addEventListener("click", (e) => {
-  e.preventDefault()
-  findApi()
-  searchbar.input = ""
-})
+
 
 // Function for navburger menu
-$(document).ready(function() {
-  $(".navbar-burger").click(function() {
-      $(".navbar-burger").toggleClass("is-active");
-      $(".navbar-menu").toggleClass("is-active");
-
+$(document).ready(function () {
+  $(".navbar-burger").click(function () {
+    $(".navbar-burger").toggleClass("is-active");
+    $(".navbar-menu").toggleClass("is-active");
   });
 });
 
-// function findApi() {
-//   // let inputValue = searchbar.value
-//   // let findCoin = 
-//   const options = { 
-//     method: 'GET',
-//     headers: {
-//       'X-RapidAPI-Key': '4099cc567dmsh223d71af5dae052p129c41jsn7d980d7d23f6',
-//       'X-RapidAPI-Host': 'investing-cryptocurrency-markets.p.rapidapi.com'
-//     }
-//   };
-  
-//   fetch('https://investing-cryptocurrency-markets.p.rapidapi.com/coins/list?edition_currency_id=12&time_utc_offset=28800&lang_ID=1&sort=PERC1D_DN&page=1', options)
-//     .then((res) => {
-//       return res.json()
-//     })
-//     .then((data) => {
-//       console.log(data)
-//     })
-//     .catch((err) => {
-//       console.error(err)
-//     });
-// }
+function findApi() {
+  let userSearch = document.querySelector('#searchbar').value.toUpperCase()
+  fetch(
+    `https://api.polygon.io/v3/reference/tickers?ticker=X:${userSearch}USD&market=crypto&date=2022-11-28&active=true&apiKey=7xjpB0pxhlPMl42aHy891kYT99ezp_oZ`
+  )
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      console.log(data);
+      findApiDet(data);
+    });
+}
 
-// function findApi() {
-//   let inputValue = searchbar.value
-//   let findCoin = 
-// }
+let findApiDet = function (findData) {
+  document.querySelector('#searchName').innerText = findData.results[0].base_currency_name
+  document.querySelector('#searchSymbol').innerText = findData.results[0].base_currency_symbol
+}
+
+function findApi2() {
+  let userSearch = document.querySelector('#searchbar').value.toUpperCase()
+  fetch(
+    `https://api.polygon.io/v2/aggs/ticker/X:${userSearch}USD/range/1/day/2022-11-27/2022-11-28?adjusted=true&sort=asc&limit=120&apiKey=7xjpB0pxhlPMl42aHy891kYT99ezp_oZ`
+  )
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      console.log(data);
+      findApiDet2(data);
+    });
+    searchbar.value = ""
+}
+
+let findApiDet2 = function (findData) {
+  document.querySelector('#searchPrice').innerText = "$" + findData.results[0].o
+  document.querySelector('#twentyFourHigh').innerText = "24HR High: $" + findData.results[0].h
+  document.querySelector('#twentyFourLow').innerText = "24HR Low: $" + findData.results[0].l
+}
