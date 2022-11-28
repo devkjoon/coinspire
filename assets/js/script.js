@@ -24,7 +24,7 @@ function getBtcApi() {
 let updateBtc = function (btcData) {
   document.querySelector("#livePrice").innerText = btcData.DISPLAY.BTC.USD.PRICE;
   document.querySelector('#btcPercentage24hr').innerText = "Change (24HR): " + btcData.DISPLAY.BTC.USD.CHANGE24HOUR + " (" + btcData.DISPLAY.BTC.USD.CHANGEPCT24HOUR + "%)"
-  document.querySelector('#btcPercentageHour').innerText = "Change (Hour): " + btcData.DISPLAY.BTC.USD.CHANGEHOUR + " (" + btcData.DISPLAY.BTC.USD.CHANGEPCTHOUR + "%)"
+  document.querySelector('#btcPercentageHour').innerText = "Change (1HR): " + btcData.DISPLAY.BTC.USD.CHANGEHOUR + " (" + btcData.DISPLAY.BTC.USD.CHANGEPCTHOUR + "%)"
   document.querySelector('#btcHigh').innerText = "24HR High: " + btcData.DISPLAY.BTC.USD.HIGH24HOUR
   document.querySelector('#btcLow').innerText = "24HR Low: " + btcData.DISPLAY.BTC.USD.LOW24HOUR
   document.querySelector('#btcHighHr').innerText = "1HR High: " + btcData.DISPLAY.BTC.USD.HIGHHOUR
