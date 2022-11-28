@@ -2,12 +2,12 @@
 // const apiKey = `850252ca876085a93a414bceb298e21862313b438417b87364eb0fe9aab45e1c`
 const searchbar = document.querySelector("#searchbar");
 const randomSearchBtn = document.querySelector("#randomSearchBtn");
-const searchBtn = document.querySelector('#searchBtn')
+const searchBtn = document.querySelector("#searchBtn");
 
-window.onload = function() {
+window.onload = function () {
   getBtcApi();
   getRandomApi();
-}
+};
 
 function getBtcApi() {
   let requestURL = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD&api_key=850252ca876085a93a414bceb298e21862313b438417b87364eb0fe9aab45e1c`;
@@ -22,14 +22,30 @@ function getBtcApi() {
 }
 
 let updateBtc = function (btcData) {
-  document.querySelector("#livePrice").innerText = btcData.DISPLAY.BTC.USD.PRICE;
-  document.querySelector('#btcPercentage24hr').innerText = "Change (24HR): " + btcData.DISPLAY.BTC.USD.CHANGE24HOUR + " (" + btcData.DISPLAY.BTC.USD.CHANGEPCT24HOUR + "%)"
-  document.querySelector('#btcPercentageHour').innerText = "Change (1HR): " + btcData.DISPLAY.BTC.USD.CHANGEHOUR + " (" + btcData.DISPLAY.BTC.USD.CHANGEPCTHOUR + "%)"
-  document.querySelector('#btcHigh').innerText = "24HR High: " + btcData.DISPLAY.BTC.USD.HIGH24HOUR
-  document.querySelector('#btcLow').innerText = "24HR Low: " + btcData.DISPLAY.BTC.USD.LOW24HOUR
-  document.querySelector('#btcHighHr').innerText = "1HR High: " + btcData.DISPLAY.BTC.USD.HIGHHOUR
-  document.querySelector('#btcLowHr').innerText = "1HR Low: " + btcData.DISPLAY.BTC.USD.LOWHOUR
-  document.querySelector('#btcIMG').src = "https://www.cryptocompare.com" + btcData.DISPLAY.BTC.USD.IMAGEURL
+  document.querySelector("#livePrice").innerText =
+    btcData.DISPLAY.BTC.USD.PRICE;
+  document.querySelector("#btcPercentage24hr").innerText =
+    "Change (24HR): " +
+    btcData.DISPLAY.BTC.USD.CHANGE24HOUR +
+    " (" +
+    btcData.DISPLAY.BTC.USD.CHANGEPCT24HOUR +
+    "%)";
+  document.querySelector("#btcPercentageHour").innerText =
+    "Change (1HR): " +
+    btcData.DISPLAY.BTC.USD.CHANGEHOUR +
+    " (" +
+    btcData.DISPLAY.BTC.USD.CHANGEPCTHOUR +
+    "%)";
+  document.querySelector("#btcHigh").innerText =
+    "24HR High: " + btcData.DISPLAY.BTC.USD.HIGH24HOUR;
+  document.querySelector("#btcLow").innerText =
+    "24HR Low: " + btcData.DISPLAY.BTC.USD.LOW24HOUR;
+  document.querySelector("#btcHighHr").innerText =
+    "1HR High: " + btcData.DISPLAY.BTC.USD.HIGHHOUR;
+  document.querySelector("#btcLowHr").innerText =
+    "1HR Low: " + btcData.DISPLAY.BTC.USD.LOWHOUR;
+  document.querySelector("#btcIMG").src =
+    "https://www.cryptocompare.com" + btcData.DISPLAY.BTC.USD.IMAGEURL;
 };
 
 randomSearchBtn.addEventListener("click", (e) => {
@@ -51,26 +67,6 @@ function getRandomApi() {
     });
 }
 
-let updatePrice = function (randomData, i) {
-  let keys = Object.keys(randomData.Data);
-  console.log(Math.floor(Math.random() * keys.length));
-  let propertyName = keys[Math.floor(Math.random() * keys.length)];
-  console.log(propertyName);
-  let symbolName = randomData.Data[propertyName].symbol;
-  console.log(symbolName);
-  fetch(
-    `https://min-api.cryptocompare.com/data/price?fsym=${symbolName}&tsyms=USD`
-  )
-    .then((res) => {
-      return res.json();
-    })
-    .then((data) => {
-      console.log(data);
-      document.querySelector("#coin" + i + "price").innerText = `$${data.USD}`;
-      document.querySelector("#coin" + i + "name").innerText = symbolName;
-    });
-};
-
 // let updatePrice = function (randomData, i) {
 //   let keys = Object.keys(randomData.Data);
 //   console.log(Math.floor(Math.random() * keys.length));
@@ -79,17 +75,50 @@ let updatePrice = function (randomData, i) {
 //   let symbolName = randomData.Data[propertyName].symbol;
 //   console.log(symbolName);
 //   fetch(
-//     `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${symbolName}&tsyms=USD`
+//     `https://min-api.cryptocompare.com/data/price?fsym=${symbolName}&tsyms=USD`
 //   )
 //     .then((res) => {
 //       return res.json();
 //     })
 //     .then((data) => {
 //       console.log(data);
-//       document.querySelector("#coin" + i + "price").innerText = data.DISPLAY.symbolName.USD.PRICE;
+//       document.querySelector("#coin" + i + "price").innerText = `$${data.USD}`;
 //       document.querySelector("#coin" + i + "name").innerText = symbolName;
 //     });
 // };
+
+let updatePrice = function (randomData, i) {
+  let keys = Object.keys(randomData.Data);
+  console.log(Math.floor(Math.random() * keys.length));
+  let propertyName = keys[Math.floor(Math.random() * keys.length)];
+  console.log(propertyName);
+  let symbolName = randomData.Data[propertyName].symbol;
+  console.log(symbolName);
+  fetch(
+    `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${symbolName}&tsyms=USD`
+  )
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      console.log(data);
+      document.querySelector("#coin" + i + "price").innerText =
+        data.DISPLAY[symbolName].USD.PRICE;
+      document.querySelector("#coin" + i + "name").innerText = symbolName;
+      document.querySelector("#coin" + i + "high").innerText =
+        "1HR High: " + data.DISPLAY[symbolName].USD.HIGHHOUR;
+      document.querySelector("#coin" + i + "low").innerText =
+        "1HR Low: " + data.DISPLAY[symbolName].USD.LOWHOUR;
+      document.querySelector("#coin" + i + "change").innerText =
+        "Change (1HR): " +
+        data.DISPLAY[symbolName].USD.CHANGEHOUR +
+        " (" +
+        data.DISPLAY[symbolName].USD.CHANGEPCTHOUR +
+        "%)";
+        document.querySelector("#coin" + i + "img").src =
+    "https://www.cryptocompare.com" + data.DISPLAY[symbolName].USD.IMAGEURL;
+    });
+};
 
 function scrollFunction() {
   let e = document.querySelector("#searchCard");
@@ -101,12 +130,12 @@ function scrollFunction() {
 }
 
 function scrollFunction2() {
-  let e = document.querySelector('#smallerCards')
+  let e = document.querySelector("#smallerCards");
   e.scrollIntoView({
     block: "center",
-    behavior: "smooth", 
+    behavior: "smooth",
     inline: "center",
-  })
+  });
 }
 
 searchbar.addEventListener("keypress", (e) => {
@@ -121,9 +150,7 @@ searchBtn.addEventListener("click", (e) => {
   e.preventDefault();
   findApi();
   findApi2();
-})
-
-
+});
 
 // Function for navburger menu
 $(document).ready(function () {
@@ -134,7 +161,7 @@ $(document).ready(function () {
 });
 
 function findApi() {
-  let userSearch = document.querySelector('#searchbar').value.toUpperCase()
+  let userSearch = document.querySelector("#searchbar").value.toUpperCase();
   fetch(
     `https://api.polygon.io/v3/reference/tickers?ticker=X:${userSearch}USD&market=crypto&date=2022-11-28&active=true&apiKey=7xjpB0pxhlPMl42aHy891kYT99ezp_oZ`
   )
@@ -147,17 +174,19 @@ function findApi() {
 }
 
 let findApiDet = function (findData) {
-  document.querySelector('#searchName').innerText = findData.results[0].base_currency_name
-  document.querySelector('#searchSymbol').innerText = findData.results[0].base_currency_symbol
-}
+  document.querySelector("#searchName").innerText =
+    findData.results[0].base_currency_name;
+  document.querySelector("#searchSymbol").innerText =
+    findData.results[0].base_currency_symbol;
+};
 
 function findApi2() {
-  let userSearch = document.querySelector('#searchbar').value.toUpperCase()
+  let userSearch = document.querySelector("#searchbar").value.toUpperCase();
   var today = new Date();
-  var dd = String(today.getDate()).padStart(2, '0');
-  var mm = String(today.getMonth() + 1).padStart(2, '0');
+  var dd = String(today.getDate()).padStart(2, "0");
+  var mm = String(today.getMonth() + 1).padStart(2, "0");
   var yyyy = today.getFullYear();
-  today = yyyy + '-' + mm + '-' + dd;
+  today = yyyy + "-" + mm + "-" + dd;
   fetch(
     `https://api.polygon.io/v2/aggs/ticker/X:${userSearch}USD/range/1/day/2022-11-27/2022-11-28?adjusted=true&sort=asc&limit=120&apiKey=7xjpB0pxhlPMl42aHy891kYT99ezp_oZ`
   )
@@ -167,11 +196,14 @@ function findApi2() {
     .then((data) => {
       findApiDet2(data);
     });
-    searchbar.value = ""
+  searchbar.value = "";
 }
 
 let findApiDet2 = function (findData) {
-  document.querySelector('#searchPrice').innerText = "$" + findData.results[0].o
-  document.querySelector('#twentyFourHigh').innerText = "24HR High: $" + findData.results[0].h
-  document.querySelector('#twentyFourLow').innerText = "24HR Low: $" + findData.results[0].l
-}
+  document.querySelector("#searchPrice").innerText =
+    "$" + findData.results[0].o;
+  document.querySelector("#twentyFourHigh").innerText =
+    "24HR High: $" + findData.results[0].h;
+  document.querySelector("#twentyFourLow").innerText =
+    "24HR Low: $" + findData.results[0].l;
+};
