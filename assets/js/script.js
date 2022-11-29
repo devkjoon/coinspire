@@ -115,8 +115,8 @@ let updatePrice = function (randomData, i) {
         " (" +
         data.DISPLAY[symbolName].USD.CHANGEPCTHOUR +
         "%)";
-        document.querySelector("#coin" + i + "img").src =
-    "https://www.cryptocompare.com" + data.DISPLAY[symbolName].USD.IMAGEURL;
+      document.querySelector("#coin" + i + "img").src =
+        "https://www.cryptocompare.com" + data.DISPLAY[symbolName].USD.IMAGEURL;
     });
 };
 
@@ -142,14 +142,12 @@ searchbar.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
     e.preventDefault();
     findApi();
-    findApi2();
   }
 });
 
 searchBtn.addEventListener("click", (e) => {
   e.preventDefault();
   findApi();
-  findApi2();
 });
 
 // Function for navburger menu
@@ -163,47 +161,46 @@ $(document).ready(function () {
 function findApi() {
   let userSearch = document.querySelector("#searchbar").value.toUpperCase();
   fetch(
-    `https://api.polygon.io/v3/reference/tickers?ticker=X:${userSearch}USD&market=crypto&date=2022-11-28&active=true&apiKey=7xjpB0pxhlPMl42aHy891kYT99ezp_oZ`
+    `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${userSearch}&tsyms=USD`
   )
     .then((res) => {
       return res.json();
     })
     .then((data) => {
-      findApiDet(data);
+      console.log(data);
+      findApiDet(data, userSearch);
     });
 }
 
-let findApiDet = function (findData) {
-  document.querySelector("#searchName").innerText =
-    findData.results[0].base_currency_name;
-  document.querySelector("#searchSymbol").innerText =
-    findData.results[0].base_currency_symbol;
-};
-
-function findApi2() {
-  let userSearch = document.querySelector("#searchbar").value.toUpperCase();
-  var today = new Date();
-  var dd = String(today.getDate()).padStart(2, "0");
-  var mm = String(today.getMonth() + 1).padStart(2, "0");
-  var yyyy = today.getFullYear();
-  today = yyyy + "-" + mm + "-" + dd;
-  fetch(
-    `https://api.polygon.io/v2/aggs/ticker/X:${userSearch}USD/range/1/day/2022-11-27/2022-11-28?adjusted=true&sort=asc&limit=120&apiKey=7xjpB0pxhlPMl42aHy891kYT99ezp_oZ`
-  )
-    .then((res) => {
-      return res.json();
-    })
-    .then((data) => {
-      findApiDet2(data);
-    });
-  searchbar.value = "";
-}
-
-let findApiDet2 = function (findData) {
+let findApiDet = function (data, userSearch) {
+  document.querySelector("#searchSym").innerText =
+    data.RAW[userSearch].USD.FROMSYMBOL;
   document.querySelector("#searchPrice").innerText =
-    "$" + findData.results[0].o;
-  document.querySelector("#twentyFourHigh").innerText =
-    "24HR High: $" + findData.results[0].h;
-  document.querySelector("#twentyFourLow").innerText =
-    "24HR Low: $" + findData.results[0].l;
+    data.DISPLAY[userSearch].USD.PRICE;
+  document.querySelector("#search24hrptc").innerText =
+    "Change (24HR): " +
+    data.DISPLAY[userSearch].USD.CHANGE24HOUR +
+    " (" +
+    data.DISPLAY[userSearch].USD.CHANGEPCT24HOUR +
+    "%)";
+  document.querySelector("#search24high").innerText =
+    "24HR High: " + data.DISPLAY[userSearch].USD.HIGH24HOUR;
+  document.querySelector("#search24low").innerText =
+    "24HR Low: " + data.DISPLAY[userSearch].USD.LOW24HOUR;
+    document.querySelector("#search24vol").innerText =
+    "24HR Volume: " + data.DISPLAY[userSearch].USD.VOLUME24HOURTO;
+  document.querySelector("#search1hrptc").innerText =
+    "Change (24HR): " +
+    data.DISPLAY[userSearch].USD.CHANGEHOUR +
+    " (" +
+    data.DISPLAY[userSearch].USD.CHANGEPCTHOUR +
+    "%)";
+  document.querySelector("#search1hrhigh").innerText =
+    "1HR High: " + data.DISPLAY[userSearch].USD.HIGHHOUR;
+  document.querySelector("#search1hrlow").innerText =
+    "1HR Low: " + data.DISPLAY[userSearch].USD.LOWHOUR;
+    document.querySelector("#search1hrvol").innerText =
+    "1HR Volume: " + data.DISPLAY[userSearch].USD.VOLUMEHOURTO;
+  document.querySelector("#searchIMG").src =
+    "https://www.cryptocompare.com" + data.DISPLAY[userSearch].USD.IMAGEURL;
 };
