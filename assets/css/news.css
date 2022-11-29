@@ -1,15 +1,4 @@
 
-.iframes {
-    display: flex;
-    justify-content: center;
-}
-
-#website1, #website2, #website3 {
-    width: 30%;
-    height: 80vh;
-    padding-top: 5% 2% 5% 2%;
-}
-
 .gradient {
     background-image: linear-gradient(
       to bottom,
