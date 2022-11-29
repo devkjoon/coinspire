@@ -33,8 +33,8 @@ CoinSpire is a front-end web application that allows users to live track current
 
 ## License
 
-See license in repo
+See LICENSE in repo
 
 ## Deployment
 
-
+https://joonkidk.github.io/live-crypto-tracker/
