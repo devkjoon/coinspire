@@ -29,7 +29,7 @@ CoinSpire is a front-end web application that allows users to live track current
 
 ## Preview
 
-![Screenshot (24)](https://user-images.githubusercontent.com/24994854/204401091-3156aa9b-dfd7-4be4-a276-e1d19de71684.png)
+![image](https://user-images.githubusercontent.com/114375310/204419167-831439c2-a168-4de7-97de-339b10aacfde.png)
 
 ## License
 
