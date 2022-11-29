@@ -12,7 +12,8 @@ CoinSpire is a front-end web application that allows users to live track current
 - JSON
 - jQuery
 - Tailwind
-- Crypto Compare API
+- CryptoCompare API
+- MarketAux API
 
 ## Usage
 

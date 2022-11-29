@@ -9,28 +9,27 @@
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
     <link rel="stylesheet" href="./dist/output.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
     <link href="./assets/css/style.css" rel="stylesheet" />
-    <link rel="stylesheet" href="./assets/css/news.css">
+    <link rel="stylesheet" href="./assets/css/news.css" />
     <title>CoinSpire</title>
   </head>
   <body class="has-navbar-fixed-top">
     <nav class="navbar is-transparent is-fixed-top">
       <div class="navbar-brand">
         <a class="navbar-item">
-          <a href="./index.html"><img
-            src="./assets/images/logo-dark.png"
-            alt="CoinSpire Logo"
-            width="112"
-            height="28"/></a>
+          <a href="./index.html"
+            ><img
+              src="./assets/images/logo-dark.png"
+              alt="CoinSpire Logo"
+              width="112"
+              height="28"
+          /></a>
         </a>
-        <div class="navbar-burger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
       </div>
-      <div></div>
       <div class="navbar-menu">
         <div class="navbar-end">
           <input
@@ -47,17 +46,13 @@
             Search
           </button>
           <div class="navbar-item has-dropdown is-hoverable">
-            <a
-              class="navbar-link"
-            >
-              Menu
-            </a>
+            <a class="navbar-link"> Menu </a>
             <div class="navbar-dropdown is-boxed">
               <a class="navbar-item"
-            ><button id="randomSearchBtn" onclick="scrollFunction2()">
-              Random
-            </button></a
-          >
+                ><button id="randomSearchBtn" onclick="scrollFunction2()">
+                  Random
+                </button></a
+              >
               <a class="navbar-item" href="./news.html"> News </a>
               <a class="navbar-item" href="./aboutus.html"> Contacts </a>
             </div>
@@ -65,7 +60,23 @@
         </div>
       </div>
     </nav>
-
+    <!-- Error Modal -->
+    <div class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Ooops... something went wrong</p>
+          <button class="delete xBtn" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          That coin is not available for search in our exchange!<br/>
+          Please also remember you can only search with coin symbols!<br/>
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button modalBtn">Okay</button>
+        </footer>
+      </div>
+    </div>
     <div class="flex-col items-center h-screen">
       <!-- Main Coin -->
       <div class="bg-white rounded-3xl shadow-xl p-8 w-3/6 btcdiv">
@@ -119,7 +130,7 @@
               ><br />
               <span class="font-bold text-black-500 Mid" id="coin1low24"
                 >24HR Low</span
-              ><br/>
+              ><br />
               <span class="font-bold text-green-500" id="coin1change"
                 >Change Percentage</span
               ><br />
@@ -156,7 +167,7 @@
               ><br />
               <span class="font-bold text-black-500 Mid" id="coin2low24"
                 >24HR Low</span
-              ><br/>
+              ><br />
               <span class="font-bold text-green-500" id="coin2change"
                 >Change Percentage</span
               ><br />
@@ -197,7 +208,7 @@
               ><br />
               <span class="font-bold text-black-500 Mid" id="coin3low24"
                 >24HR Low</span
-              ><br/>
+              ><br />
               <span class="font-bold text-green-500" id="coin3change"
                 >Change Percentage</span
               ><br />
@@ -234,7 +245,7 @@
               ><br />
               <span class="font-bold text-black-500 Mid" id="coin4low24"
                 >24HR Low</span
-              ><br/>
+              ><br />
               <span class="font-bold text-green-500" id="coin4change"
                 >Change Percentage</span
               ><br />
