@@ -38,4 +38,4 @@ See LICENSE in repo
 
 ## Deployment
 
-https://joonkidk.github.io/live-crypto-tracker/
+https://joonkidk.github.io/coinspire/
