@@ -85,12 +85,22 @@ let updatePrice = function (randomData, i) {
       document.querySelector("#coin" + i + "price").innerText =
         data.DISPLAY[symbolName].USD.PRICE;
       document.querySelector("#coin" + i + "name").innerText = symbolName;
+      document.querySelector("#coin" + i + "change24").innerText =
+      "Change (24HR): " + 
+        data.DISPLAY[symbolName].USD.CHANGE24HOUR +
+        " (" +
+        data.DISPLAY[symbolName].USD.CHANGEPCT24HOUR +
+        "%)";
+      document.querySelector("#coin" + i + "high24").innerText =
+        "24HR High: " + data.DISPLAY[symbolName].USD.HIGH24HOUR;
+      document.querySelector("#coin" + i + "low24").innerText =
+        "24HR High: " + data.DISPLAY[symbolName].USD.LOW24HOUR;
       document.querySelector("#coin" + i + "high").innerText =
         "1HR High: " + data.DISPLAY[symbolName].USD.HIGHHOUR;
       document.querySelector("#coin" + i + "low").innerText =
         "1HR Low: " + data.DISPLAY[symbolName].USD.LOWHOUR;
       document.querySelector("#coin" + i + "change").innerText =
-        "1HR: " +
+        "Change (1HR): " +
         data.DISPLAY[symbolName].USD.CHANGEHOUR +
         " (" +
         data.DISPLAY[symbolName].USD.CHANGEPCTHOUR +
@@ -167,7 +177,7 @@ let findApiDet = function (data, userSearch) {
     "24HR High: " + data.DISPLAY[userSearch].USD.HIGH24HOUR;
   document.querySelector("#search24low").innerText =
     "24HR Low: " + data.DISPLAY[userSearch].USD.LOW24HOUR;
-    document.querySelector("#search24vol").innerText =
+  document.querySelector("#search24vol").innerText =
     "24HR Volume: " + data.DISPLAY[userSearch].USD.VOLUME24HOURTO;
   document.querySelector("#search1hrptc").innerText =
     "Change (24HR): " +
@@ -179,7 +189,7 @@ let findApiDet = function (data, userSearch) {
     "1HR High: " + data.DISPLAY[userSearch].USD.HIGHHOUR;
   document.querySelector("#search1hrlow").innerText =
     "1HR Low: " + data.DISPLAY[userSearch].USD.LOWHOUR;
-    document.querySelector("#search1hrvol").innerText =
+  document.querySelector("#search1hrvol").innerText =
     "1HR Volume: " + data.DISPLAY[userSearch].USD.VOLUMEHOURTO;
   document.querySelector("#searchIMG").src =
     "https://www.cryptocompare.com" + data.DISPLAY[userSearch].USD.IMAGEURL;

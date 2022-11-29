@@ -1,55 +1,102 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News Daily</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"/>
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/news.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Tailwind CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"/>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/news.css">
+  <title>Relevant News</title>
 </head>
 <body class="has-navbar-fixed-top">
     <nav class="navbar is-transparent is-fixed-top">
-        <div class="navbar-brand">
-          <a class="navbar-item">
-            <a href="./index.html"><img
-              src="./assets/images/logo-dark.png"
-              alt="CoinSpire Logo"
-              width="112"
-              height="28"
-            />
-          </a>
-          <div class="navbar-burger">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+      <div class="navbar-brand">
+        <a class="navbar-item">
+          <a href="./index.html"><img
+            src="./assets/images/logo-dark.png"
+            alt="CoinSpire Logo"
+            width="112"
+            height="28"/></a>
+        </a>
+        <div class="navbar-burger">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-        <div></div>
-        <div class="navbar-menu">
-          <div class="navbar-end">
-            
-            <div class="navbar-item has-dropdown is-hoverable">
-              <a
+      </div>
+      <div></div>
+      <div class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item" href="./index.html">Home</a>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a
               class="navbar-link"
             >
               Menu
             </a>
-              <div class="navbar-dropdown is-boxed">
-                <a class="navbar-item" href="./news.html"> News </a>
-                <a class="navbar-item" href="./aboutus.html"> Contacts </a>
+            <div class="navbar-dropdown is-boxed">
+              <a class="navbar-item" href="./news.html"> News </a>
+              <a class="navbar-item" href="./aboutus.html"> Contacts </a>
             </div>
           </div>
         </div>
-      </nav>
-      <div>
-        <div class="wave"></div>
-        <div class="wave"></div>
-        <div class="wave"></div>
-     </div>
-    <script src="./assets/js/news.js"></script>
+      </div>
+    </nav>
+
+  <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+    <!--Card 1-->
+    <div class="rounded overflow-hidden shadow-lg">
+      <img class="w-full" src="/mountain.jpg" alt="Mountain">
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">Mountain</div>
+        <p class="text-gray-700 text-base">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+        </p>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+      </div>
+    </div>
+    <!--Card 2-->
+    <div class="rounded overflow-hidden shadow-lg">
+      <img class="w-full" src="/river.jpg" alt="River">
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">River</div>
+        <p class="text-gray-700 text-base">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+        </p>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#summer</span>
+      </div>
+    </div>
+    <!--Card 3-->
+    <div class="rounded overflow-hidden shadow-lg">
+      <img class="w-full" src="/forest.jpg" alt="Forest">
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">Forest</div>
+        <p class="text-gray-700 text-base">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+        </p>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#fall</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+ </div>
+<script src="./assets/js/news.js"></script>
 </body>
 </html>
