@@ -1,8 +1,8 @@
 
 
-window.onload = function () {
-    newsApi()
-}
+// window.onload = function () {
+//     newsApi()
+// }
 
 function newsApi() {
     let requestURL = `https://min-api.cryptocompare.com/data/v2/news/?lang=EN&api_key=850252ca876085a93a414bceb298e21862313b438417b87364eb0fe9aab45e1c`

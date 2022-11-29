@@ -1,26 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Information</title>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Daily</title>
     <link
-      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
       rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="stylesheet" href="./assets/css/news.css" />
-  </head>
-  <body>
-    <div class="iframes">
-      <iframe src="" frameborder="0" id="website1"></iframe>
-      <iframe src="" frameborder="0" id="website2"></iframe>
-      <iframe src="" frameborder="0" id="website3"></iframe>
-    </div>
-    <div class="wave"></div>
-    <div class="wave"></div>
-    <div class="wave"></div>
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"/>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/news.css">
+</head>
+<body class="has-navbar-fixed-top">
+    <nav class="navbar is-transparent is-fixed-top">
+        <div class="navbar-brand">
+          <a class="navbar-item">
+            <a href="./index.html"><img
+              src="./assets/images/logo-dark.png"
+              alt="CoinSpire Logo"
+              width="112"
+              height="28"
+            />
+          </a>
+          <div class="navbar-burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div></div>
+        <div class="navbar-menu">
+          <div class="navbar-end">
+            
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a
+              class="navbar-link"
+            >
+              Menu
+            </a>
+              <div class="navbar-dropdown is-boxed">
+                <a class="navbar-item" href="./news.html"> News </a>
+                <a class="navbar-item" href="./aboutus.html"> Contacts </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+     </div>
     <script src="./assets/js/news.js"></script>
-  </body>
+</body>
 </html>
