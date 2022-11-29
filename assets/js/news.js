@@ -1,23 +1,25 @@
-
-
-// window.onload = function () {
-//     newsApi()
-// }
+window.onload = function () {
+    newsApi()
+}
 
 function newsApi() {
-    let requestURL = `https://min-api.cryptocompare.com/data/v2/news/?lang=EN&api_key=850252ca876085a93a414bceb298e21862313b438417b87364eb0fe9aab45e1c`
-    fetch(requestURL)
+  let requestURL = `https://api.marketaux.com/v1/news/all?countries=us&language=en&limit=3&api_token=aIbPoiCRIojTnvPvL1hJJArYIMY3qlglxeJdHgB3`;
+  fetch(requestURL)
     .then((res) => {
-        return res.json();
+      return res.json();
     })
     .then((data) => {
-        console.log(data)
-        appendArticles(data)
-    })
+      console.log(data);
+      for (let i = 0; i < 3; i++) {
+        appendArticles(data, i);
+      }
+    });
 }
 
-let appendArticles = function (artData) {
-    document.querySelector('#website1').src = artData.Data[1].guid
-    document.querySelector('#website2').src = artData.Data[2].guid
-    document.querySelector('#website3').src = artData.Data[6].guid
-}
+let appendArticles = function (artData, i) {
+  document.querySelector("#article" + i).src = artData.data[i].image_url;
+  document.querySelector("#title" + i).innerText = artData.data[i].title;
+  document.querySelector("#text" + i).innerText = artData.data[i].snippet;
+  document.querySelector("#link" + i).href = artData.data[i].url;
+};
+
