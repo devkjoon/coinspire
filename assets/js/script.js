@@ -1,14 +1,19 @@
 // const updateBtcLive = setInterval(getBtcApi, 10000);
-// const apiKey = `850252ca876085a93a414bceb298e21862313b438417b87364eb0fe9aab45e1c`
+
 const searchbar = document.querySelector("#searchbar");
 const randomSearchBtn = document.querySelector("#randomSearchBtn");
 const searchBtn = document.querySelector("#searchBtn");
+const modal = document.querySelector('.modal');
+const xBtn = document.querySelector('.xBtn');
+const modalBtn = document.querySelector('.modalBtn')
 
+// upon loading the page, two functions load to fetch apis for each coin div
 window.onload = function () {
   getBtcApi();
   getRandomApi();
 };
 
+// fetches btc information api then passes data to updateBtc()
 function getBtcApi() {
   let requestURL = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD&api_key=850252ca876085a93a414bceb298e21862313b438417b87364eb0fe9aab45e1c`;
   fetch(requestURL)
@@ -21,6 +26,7 @@ function getBtcApi() {
     });
 }
 
+// receives data from getBtcApi() then appends relevant information to btc card
 let updateBtc = function (btcData) {
   document.querySelector("#livePrice").innerText =
     btcData.DISPLAY.BTC.USD.PRICE;
@@ -48,11 +54,13 @@ let updateBtc = function (btcData) {
     "https://www.cryptocompare.com" + btcData.DISPLAY.BTC.USD.IMAGEURL;
 };
 
+// clicking random button will trigger getRandomApi()
 randomSearchBtn.addEventListener("click", (e) => {
   e.preventDefault();
   getRandomApi();
 });
 
+// api runs coin list then runs a for loop to run four functions
 function getRandomApi() {
   let randomApiUrl = `https://min-api.cryptocompare.com/data/blockchain/list?api_key=850252ca876085a93a414bceb298e21862313b438417b87364eb0fe9aab45e1c`;
   fetch(randomApiUrl)
@@ -67,6 +75,8 @@ function getRandomApi() {
     });
 }
 
+// for loop finds four random coins from the coin list, then appends information
+// to coin cards
 let updatePrice = function (randomData, i) {
   let keys = Object.keys(randomData.Data);
   console.log(Math.floor(Math.random() * keys.length));
@@ -110,6 +120,7 @@ let updatePrice = function (randomData, i) {
     });
 };
 
+// scroll behavior
 function scrollFunction() {
   let e = document.querySelector("#searchCard");
   e.scrollIntoView({
@@ -119,6 +130,7 @@ function scrollFunction() {
   });
 }
 
+// scroll behavior
 function scrollFunction2() {
   let e = document.querySelector("#smallerCards");
   e.scrollIntoView({
@@ -128,17 +140,21 @@ function scrollFunction2() {
   });
 }
 
+// upon pressing enter on searchbar, runs the function
 searchbar.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
     e.preventDefault();
     findApi();
+    scrollFunction();
   }
 });
 
+// upon clicking search button on navbar, runs the function
 searchBtn.addEventListener("click", (e) => {
   e.preventDefault();
   findApi();
 });
+
 
 // Function for navburger menu
 $(document).ready(function () {
@@ -148,6 +164,20 @@ $(document).ready(function () {
   });
 });
 
+// removes modal from view when x button is clicked
+xBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  modal.classList.remove('is-active')
+})
+
+// removes modal from view when okay button is clicked
+modalBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  modal.classList.remove('is-active')
+})
+
+// finds api by coin symbol, then either passing along data to findApiDet() 
+// or displays error modal
 function findApi() {
   let userSearch = document.querySelector("#searchbar").value.toUpperCase();
   fetch(
@@ -159,9 +189,13 @@ function findApi() {
     .then((data) => {
       console.log(data);
       findApiDet(data, userSearch);
-    });
+    })
+    .catch(() => {
+      modal.classList.add('is-active')
+    })
 }
 
+// receives data from findApi() then appends relevant info to search coin card
 let findApiDet = function (data, userSearch) {
   document.querySelector("#searchSym").innerText =
     data.RAW[userSearch].USD.FROMSYMBOL;
