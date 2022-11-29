@@ -67,26 +67,6 @@ function getRandomApi() {
     });
 }
 
-// let updatePrice = function (randomData, i) {
-//   let keys = Object.keys(randomData.Data);
-//   console.log(Math.floor(Math.random() * keys.length));
-//   let propertyName = keys[Math.floor(Math.random() * keys.length)];
-//   console.log(propertyName);
-//   let symbolName = randomData.Data[propertyName].symbol;
-//   console.log(symbolName);
-//   fetch(
-//     `https://min-api.cryptocompare.com/data/price?fsym=${symbolName}&tsyms=USD`
-//   )
-//     .then((res) => {
-//       return res.json();
-//     })
-//     .then((data) => {
-//       console.log(data);
-//       document.querySelector("#coin" + i + "price").innerText = `$${data.USD}`;
-//       document.querySelector("#coin" + i + "name").innerText = symbolName;
-//     });
-// };
-
 let updatePrice = function (randomData, i) {
   let keys = Object.keys(randomData.Data);
   console.log(Math.floor(Math.random() * keys.length));
