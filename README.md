@@ -20,6 +20,7 @@ CoinSpire is a front-end web application that allows users to live track current
 - When you open the application, you have the most popular currency, BitCoin, that displays all the current stats. Below that, there are other random coin currencies that you can randomize using the "Random" button in the navigation bar.
 - When you search a coin, it will show you the stats on that specific coin.
 - The menu options include: Favorites, which will show you your favorited coins, About Us, which displays the contributors to the application's contact information.
+- When the application is minimized, a hamburger navigation menu replaces the original navigation bar for a better user interface.
 
 ## Credits
 
