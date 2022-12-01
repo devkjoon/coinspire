@@ -23,6 +23,7 @@ CoinSpire is a front-end web application that allows users to live track current
 - Should a user wish to search up their own coin for research purposes, then can do so by typing in coin symbol and either clicking the search button or typing in the ENTER key
 - Should a user search the coin up by coin name, a modal is displayed to the screen to let user know that coin is either not within the database or that you must search by coin symbol
 - Sticky navbar is displayed wherever you are on the page
+- When user drags the window size to become smaller, a hamburger icon is displayed instead of the dropdown menu
 - Upon hovering or clicking on the menu, a dropdown consisting of the "Contact" page, "News" page, and "Random" page
 - Clicking the "Random" button will fetch four more random coins and replace those currently displayed on the cards
 - Clicking the "News" button will navigate user to another page regarding the three latest finance related news
