@@ -1,4 +1,4 @@
-// const updateBtcLive = setInterval(getBtcApi, 10000);
+const updateBtcLive = setInterval(getBtcApi, 10000);
 
 const searchbar = document.querySelector("#searchbar");
 const randomSearchBtn = document.querySelector("#randomSearchBtn");
