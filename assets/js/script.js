@@ -1,4 +1,4 @@
-// const updateBtcLive = setInterval(getBtcApi, 10000);
+const updateBtcLive = setInterval(getBtcApi, 10000);
 
 const searchbar = document.querySelector("#searchbar");
 const randomSearchBtn = document.querySelector("#randomSearchBtn");
@@ -104,7 +104,7 @@ let updatePrice = function (randomData, i) {
       document.querySelector("#coin" + i + "high24").innerText =
         "24HR High: " + data.DISPLAY[symbolName].USD.HIGH24HOUR;
       document.querySelector("#coin" + i + "low24").innerText =
-        "24HR High: " + data.DISPLAY[symbolName].USD.LOW24HOUR;
+        "24HR Low: " + data.DISPLAY[symbolName].USD.LOW24HOUR;
       document.querySelector("#coin" + i + "high").innerText =
         "1HR High: " + data.DISPLAY[symbolName].USD.HIGHHOUR;
       document.querySelector("#coin" + i + "low").innerText =

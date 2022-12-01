@@ -30,6 +30,7 @@ CoinSpire is a front-end web application that allows users to live track current
 - Upon the about us page, users may click on the button on the bottom of each profile, users will then be navigated to the creator's Github
 - Upon clicking the "Home" button located on the navbar or the CoinSpire Logo, user will be navigated to the main page
 
+
 ## Credits
 
 - Joon Kim
