@@ -17,10 +17,19 @@ CoinSpire is a front-end web application that allows users to live track current
 
 ## Usage
 
-- When you open the application, you have the most popular currency, BitCoin, that displays all the current stats. Below that, there are other random coin currencies that you can randomize using the "Random" button in the navigation bar.
-- When you search a coin, it will show you the stats on that specific coin.
-- The menu options include: Favorites, which will show you your favorited coins, About Us, which displays the contributors to the application's contact information.
-- When the application is minimized, a hamburger navigation menu replaces the original navigation bar for a better user interface.
+- Upon application load, the main card containing bitcoin will be visible, including pertaining details regarding prices
+- Below the main card are four cards that display random coin fetched from a list containing every coin in the database
+- The four random coins are displayed for discovery purposes
+- Should a user wish to search up their own coin for research purposes, then can do so by typing in coin symbol and either clicking the search button or typing in the ENTER key
+- Should a user search the coin up by coin name, a modal is displayed to the screen to let user know that coin is either not within the database or that you must search by coin symbol
+- Sticky navbar is displayed wherever you are on the page
+- Upon hovering or clicking on the menu, a dropdown consisting of the "Contact" page, "News" page, and "Random" page
+- Clicking the "Random" button will fetch four more random coins and replace those currently displayed on the cards
+- Clicking the "News" button will navigate user to another page regarding the three latest finance related news
+- Clicking the "Contact" button will navigate user to another page regarding the creators of this web application
+- Upon the about us page, users may click on the button on the bottom of each profile, users will then be navigated to the creator's Github
+- Upon clicking the "Home" button located on the navbar or the CoinSpire Logo, user will be navigated to the main page
+
 
 ## Credits
 
