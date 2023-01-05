@@ -3,9 +3,9 @@ const updateBtcLive = setInterval(getBtcApi, 10000);
 const searchbar = document.querySelector("#searchbar");
 const randomSearchBtn = document.querySelector("#randomSearchBtn");
 const searchBtn = document.querySelector("#searchBtn");
-const modal = document.querySelector('.modal');
-const xBtn = document.querySelector('.xBtn');
-const modalBtn = document.querySelector('.modalBtn')
+const modal = document.querySelector(".modal");
+const xBtn = document.querySelector(".xBtn");
+const modalBtn = document.querySelector(".modalBtn");
 
 // upon loading the page, two functions load to fetch apis for each coin div
 window.onload = function () {
@@ -96,7 +96,7 @@ let updatePrice = function (randomData, i) {
         data.DISPLAY[symbolName].USD.PRICE;
       document.querySelector("#coin" + i + "name").innerText = symbolName;
       document.querySelector("#coin" + i + "change24").innerText =
-      "Change (24HR): " + 
+        "Change (24HR): " +
         data.DISPLAY[symbolName].USD.CHANGE24HOUR +
         " (" +
         data.DISPLAY[symbolName].USD.CHANGEPCT24HOUR +
@@ -146,6 +146,9 @@ searchbar.addEventListener("keypress", (e) => {
     e.preventDefault();
     findApi();
     scrollFunction();
+    let myHistory = [];
+    localStorage.setItem("userSearch", JSON.stringify(myHistory));
+    searchbar.value = "";
   }
 });
 
@@ -153,8 +156,10 @@ searchbar.addEventListener("keypress", (e) => {
 searchBtn.addEventListener("click", (e) => {
   e.preventDefault();
   findApi();
+  let myHistory = [];
+  localStorage.setItem("userSearch", JSON.stringify(myHistory));
+  searchbar.value = "";
 });
-
 
 // Function for navburger menu
 $(document).ready(function () {
@@ -165,18 +170,18 @@ $(document).ready(function () {
 });
 
 // removes modal from view when x button is clicked
-xBtn.addEventListener('click', (e) => {
+xBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  modal.classList.remove('is-active')
-})
+  modal.classList.remove("is-active");
+});
 
 // removes modal from view when okay button is clicked
-modalBtn.addEventListener('click', (e) => {
+modalBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  modal.classList.remove('is-active')
-})
+  modal.classList.remove("is-active");
+});
 
-// finds api by coin symbol, then either passing along data to findApiDet() 
+// finds api by coin symbol, then either passing along data to findApiDet()
 // or displays error modal
 function findApi() {
   let userSearch = document.querySelector("#searchbar").value.toUpperCase();
@@ -191,8 +196,8 @@ function findApi() {
       findApiDet(data, userSearch);
     })
     .catch(() => {
-      modal.classList.add('is-active')
-    })
+      modal.classList.add("is-active");
+    });
 }
 
 // receives data from findApi() then appends relevant info to search coin card

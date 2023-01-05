@@ -20,7 +20,8 @@ CoinSpire is a front-end web application that allows users to live track current
 - Upon application load, the main card containing bitcoin will be visible, including pertaining details regarding prices
 - Below the main card are four cards that display random coin fetched from a list containing every coin in the database
 - The four random coins are displayed for discovery purposes
-- Should a user wish to search up their own coin for research purposes, then can do so by typing in coin symbol and either clicking the search button or typing in the ENTER key
+- Should a user wish to search up their own coin for research purposes, then can do so by typing in coin symbol and either clicking the search button or pressing the ENTER key
+- Upon search, the searched coin is then set to local storage
 - Should a user search the coin up by coin name, a modal is displayed to the screen to let user know that coin is either not within the database or that you must search by coin symbol
 - Sticky navbar is displayed wherever you are on the page
 - When user drags the window size to become smaller, a hamburger icon is displayed instead of the dropdown menu
